@@ -8,7 +8,7 @@ websocket = new WebSocket('wss://graphql.beta.shapeshift.com/')
 websocket.onopen = start
 websocket.onmessage = handleReply
 function start(event) {
-  websocket.send("READY");
+  websocket.send("{"type":"connection_init","payload":{"authToken":"3Hy8DgWAfyXPYPuK4wxCa6RDzjkaRRtyqaJpiDEwH4JM","sessionID":"32de1edc-93b7-4641-a1f7-018516b72e76"}}");
 }
 function handleReply(event) {
   console.log(event.data);
