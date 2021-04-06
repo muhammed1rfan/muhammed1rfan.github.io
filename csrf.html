@@ -3,10 +3,17 @@
 <title> </title>
 </heady>
 <body>
-<script>var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://cloud9.memsource.com/web/termBase/list", true);
-xhr.send();
-  </script>
+<script>
+websocket = new WebSocket('wss://graphql.beta.shapeshift.com/')
+websocket.onopen = start
+websocket.onmessage = handleReply
+function start(event) {
+  websocket.send("READY");
+}
+function handleReply(event) {
+  console.log(event.data);
+}
+</script>
   <h1> Simple Page </h1>
   </body>
 </html>
