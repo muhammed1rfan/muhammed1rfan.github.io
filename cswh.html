@@ -1,0 +1,20 @@
+<html>
+ <head>
+   <title> </title>
+  </head>
+<body>
+  <p id="myP" >Simple test</p>
+
+<script>
+websocket = new WebSocket('wss://push.services.mozilla.com')
+websocket.onopen = start
+websocket.onmessage = handleReply
+function start(event) {
+  websocket.send('{"messageType":"hello","broadcasts":{"remote-settings/monitor_changes":"\"1618007882449\""},"use_webpush":true}');
+}
+function handleReply(event) {
+  document.getElementById("myP").innerHTML= event.data;
+}
+</script> 
+  </body>
+</html>
