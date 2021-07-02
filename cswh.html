@@ -4,7 +4,7 @@
 </head>
 <body>
 <script>
-websocket = new WebSocket('ws://ptl-a85a9f91-b6e1eb7a.libcurl.so/')
+websocket = new WebSocket('ws://ptl-a85a9f91-b6e1eb7a.libcurl.so/');
 websocket.onopen = start
 websocket.onmessage = handleReply
 function start(event) {
