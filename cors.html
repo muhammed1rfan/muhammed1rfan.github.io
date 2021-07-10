@@ -1,0 +1,11 @@
+<html>
+  <body>
+    <h1> Simple Site </h1>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.addEventListener("load", function () {
+  console.log(this.responseText);
+});
+      xhr.open("POST","api-ptl-ad42da05-c93d6931.libcurl.so//api/v1/keys");
+      xhr.send();
+    </script>
