@@ -1,7 +1,7 @@
 <html>
   <head></head>
     <body>
-     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"
       
       
       <script>
@@ -22,7 +22,7 @@ const value = encrypted.value;
 
 
 // Key is base64 encoded in Laravel, word array expected in cryptojs
-key = CryptoJS.enc.Base64.parse(key);
+
 
 // Decrypt the value, providing the IV. 
 var decrypted = CryptoJS.AES.decrypt(value, key, {
