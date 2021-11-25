@@ -31,7 +31,6 @@ var decrypted = CryptoJS.AES.decrypt(value, key, {
 
 // CryptoJS returns a word array which can be 
 // converted to string like this
-decrypted = decrypted.toString(CryptoJS.enc.Utf8);
 
 console.log(decrypted); // Voilà! Prints "Hello world!"
         
