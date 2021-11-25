@@ -1,0 +1,42 @@
+<html>
+  <head></head>
+    <body>
+      <input id="encrypted" name="encrypted" type="text">
+      <input id="key" name="key" type="text">
+      
+      
+      <script>
+        encrypted = atob(encrypted);
+encrypted = JSON.parse(encrypted);
+
+console.log('Laravel encryption result', encrypted);
+
+
+
+// IV is base64 encoded in Laravel, expected as word array in cryptojs
+const iv = CryptoJS.enc.Base64.parse(encrypted.iv);
+
+// Value (chipher text) is also base64 encoded in Laravel, same in cryptojs
+const value = encrypted.value;
+
+
+// Key is base64 encoded in Laravel, word array expected in cryptojs
+key = CryptoJS.enc.Base64.parse(key);
+
+// Decrypt the value, providing the IV. 
+var decrypted = CryptoJS.AES.decrypt(value, key, {
+  iv: iv
+});
+
+// CryptoJS returns a word array which can be 
+// converted to string like this
+decrypted = decrypted.toString(CryptoJS.enc.Utf8);
+
+console.log(decrypted); // Voilà! Prints "Hello world!"
+        
+        
+        </script>
+  </body>
+</html>
+      
+      
