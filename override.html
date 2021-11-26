@@ -1,13 +1,17 @@
+
 <html>
   <head></head>
-    <body>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.js"></script>
-      
-      
-      <script>
-        var encrypted = 'eyJpdiI6ImdjcW96S2NnSis5N2o2NFpzV2hpR1E9PSIsInZhbHVlIjoiTUthS2p1QUlMdkl2Z0ptUzBPdnVMUVV4eXBkNkdYd2JZa2k1TzFUemhxS2VRVng4VEk3VTlkTTJ1TlNaOU5CZFM5UFJ5UUJ4c2o1Y2ErSU1OeUxUREFlMzJjQ3hnT0NsdkxnSXROWnBuZ009IiwibWFjIjoiYTA2NzgzOGVjZDAxZWM5NTUxZWUyZjk0Y2NiZDlkMzYzYzQyOWMzMmYwM2I5MzIzZDFkZTVmYTQxNWQxMDk5MiJ9';
-        var key = 'VgMo7FccKMsCFnc4ZWemBAAUAr4kDFCs';
-        encrypted = atob(encrypted);
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+var encrypted = 'eyJpdiI6IkN0UW5wdjBvclB3VmFLdUp4Y3VHWnc9PSIsInZhbHVlIjoiTldBbWR2TUdaMWRrZ0tpb2dSa0Z0Q1BKS0hJNWh4WnJWRHpCZ1VLTEFGZ2ZSQU0wWmF6ZUdNQW94aU1KOXpwaXhJVk50MGp1RVdpM1dCSXplYm9KdktkdHBKZHJSZXdtTXVcL0FFSVhTU0tvPSIsIm1hYyI6IjNlNDk0NzJiMmYyM2I4NDhhZTcyMTZmMjU3MmZhYjZjYTE3MDA0NTQ4MzRlZDExOGFhYzgwZTM3ZGYxOGVmMWMifQ==';
+
+// The APP_KEY in .env file. Note that it is base64 encoded binary
+var key = '6eRvQQh2qqSFJWKnvpyJnNLCcrOS0LWwe';
+
+// Laravel creates a JSON to store iv, value and a mac and base64 encodes it.
+// So let's base64 decode the string to get them.
+encrypted = atob(encrypted);
 encrypted = JSON.parse(encrypted);
 
 console.log('Laravel encryption result', encrypted);
@@ -22,7 +26,7 @@ const value = encrypted.value;
 
 
 // Key is base64 encoded in Laravel, word array expected in cryptojs
-
+key = CryptoJS.enc.Base64.parse(key);
 
 // Decrypt the value, providing the IV. 
 var decrypted = CryptoJS.AES.decrypt(value, key, {
@@ -31,12 +35,9 @@ var decrypted = CryptoJS.AES.decrypt(value, key, {
 
 // CryptoJS returns a word array which can be 
 // converted to string like this
+decrypted = decrypted.toString(CryptoJS.enc.Utf8);
 
-console.log(decrypted); // Voilà! Prints "Hello world!"
-        
-        
-        </script>
+console.log(decrypted);
+      </script>
   </body>
 </html>
-      
-      
